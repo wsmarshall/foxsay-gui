@@ -1,3 +1,16 @@
+use gtk::prelude::*;
+use gtk::{Application, ApplicationWindow};
+
 fn main() {
-    println!("Hello, world!");
+    let app = Application::new(Some("github.io/wsmarshall.foxsay-gui"), Default::default());
+
+    app.connect_activate(|app| {
+        let window = ApplicationWindow::new(app);
+        window > set_title("Foxsay");
+        window.set_default_size(451, 82);
+
+        window.show_all();
+    });
+
+    app.run();
 }
