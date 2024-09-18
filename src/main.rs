@@ -14,7 +14,7 @@ fn main() {
         let label = Label::new(Some("Wa-pa-pa-pa-pa-pa-pow!\n   \\\n    \\"));
         layout_box.add(&label);
 
-        let fox_image = Image::from_file("./images/fox.png");
+        let fox_image = Image::from_file("./images/fox.jpeg");
         layout_box.add(&fox_image);
 
         window.add(&layout_box);
