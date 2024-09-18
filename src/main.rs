@@ -2,7 +2,7 @@ use gtk::prelude::*;
 use gtk::{Application, ApplicationWindow};
 
 fn main() {
-    let app = Application::new(Some("github.io/wsmarshall.foxsay-gui"), Default::default());
+    let app = Application::new(Some("io.github.wsmarshall.foxsay-gui"), Default::default());
 
     app.connect_activate(|app| {
         let window = ApplicationWindow::new(app);
