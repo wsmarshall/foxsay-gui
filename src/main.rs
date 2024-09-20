@@ -1,26 +1,20 @@
 use gtk::prelude::*;
-use gtk::{Application, ApplicationWindow, Box as GtkBox, Image, Label, Orientation};
+
+fn build_ui(app: &gtk::Application) {
+    let glade_src = include_str!("layout.glade");
+    let builder = gtk::Builder::from_string(&glade_src);
+
+    let window: gtk::Window = builder.object("application window").unwrap();
+    window.set_application(Some(app));
+
+    window.show_all();
+
+}
 
 fn main() {
-    let app = Application::new(Some("io.github.wsmarshall.foxsay-gui"), Default::default());
+    let application = gtk::Application::new(Some("io.github.wsmarshall.foxsay-gui-glade"), Default::default());
 
-    app.connect_activate(|app| {
-        let window = ApplicationWindow::new(app);
-        window.set_title("Foxsay");
-        window.set_default_size(1300, 1000);
-
-        let layout_box = GtkBox::new(Orientation::Vertical, 0);
-
-        let label = Label::new(Some("Wa-pa-pa-pa-pa-pa-pow!\n   \\\n    \\"));
-        layout_box.add(&label);
-
-        let fox_image = Image::from_file("./images/fox.png");
-        layout_box.add(&fox_image);
-
-        window.add(&layout_box);
-
-        window.show_all();
-    });
-
-    app.run();
+    application.connect_activate(build_ui);
+    application.run();
+    
 }
