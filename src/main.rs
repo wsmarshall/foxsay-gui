@@ -10,8 +10,23 @@ fn build_ui(app: &gtk::Application) {
     //associate this application with this window
     window.set_application(Some(app));
 
-    window.show_all();
+    //set up inputs
+    let message_input: gtk::Entry = builder.object("message_input").unwrap();
 
+    //button for submissions
+    let button: gtk::Button = builder.object("generate_btn").unwrap();
+
+    //for displaying outputs
+    let message_output: gtk::Label = builder.object("message output").unwrap();
+    let image_output: gtk::Image = builder.object("image output").unwrap();
+
+    button.connect_clicked(|_| {
+        message_output.set_text(&format!("{}\n \\\n \\", message_input.text().as_str()));
+        image_output.show();
+    });
+
+    window.show_all();
+    image_output.hide();
 }
 
 fn main() {
