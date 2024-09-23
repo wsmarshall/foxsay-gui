@@ -20,12 +20,25 @@ fn build_ui(app: &gtk::Application) {
     //for displaying outputs
     let message_output: gtk::Label = builder.object("message output").unwrap();
     let message_output_clone = message_output.clone(); //only a shallow clone of the pointer
+    
+    let death_switch: gtk::Switch = builder.object("death_switch").unwrap();
+    
     let image_output: gtk::Image = builder.object("image output").unwrap();
     let image_output_clone = image_output.clone(); //sim. shallow clone
 
 
     button.connect_clicked(move |_| {
         message_output_clone.set_text(&format!("{}\n \\\n \\", message_input_clone.text().as_str()));
+        
+        let is_dead = death_switch.is_active();
+        if is_dead {
+            image_output_clone.set_from_file(
+                Some("./images/dead_fox.jpg")
+            )
+        } else {
+            image_output_clone.set_from_file(Some("./images/fox.png"))
+        }
+        
         image_output_clone.show();
     });
 
