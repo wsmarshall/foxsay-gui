@@ -19,13 +19,10 @@
               <object class="GtkBox" id="message_input_box">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="resize_mode">
-                    immediate
-                </property>
+                <property name="resize_mode">immediate</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel"
-                    id="message_input_bo">
+                  <object class="GtkLabel" id="message_input_bo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">
@@ -62,8 +59,7 @@
                 <property name="can_focus">False</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel"
-                    id="is_dead_switch_label">
+                  <object class="GtkLabel" id="is_dead_switch_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">
@@ -101,9 +97,7 @@
                 </property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">
-                    True
-                </property>
+                <property name="receives_default">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
