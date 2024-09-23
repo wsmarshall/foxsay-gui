@@ -18,12 +18,12 @@ fn build_ui(app: &gtk::Application) {
     let button: gtk::Button = builder.object("generate_btn").unwrap();
 
     //for displaying outputs
-    let message_output: gtk::Label = builder.object("message output").unwrap();
+    let message_output: gtk::Label = builder.object("message_output").unwrap();
     let message_output_clone = message_output.clone(); //only a shallow clone of the pointer
     
-    let death_switch: gtk::Switch = builder.object("death_switch").unwrap();
+    let death_switch: gtk::Switch = builder.object("is_dead_switch").unwrap();
     
-    let image_output: gtk::Image = builder.object("image output").unwrap();
+    let image_output: gtk::Image = builder.object("image_output").unwrap();
     let image_output_clone = image_output.clone(); //sim. shallow clone
 
 
